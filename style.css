@@ -1,0 +1,697 @@
+/* 
+Font header:  			font-family: 'Crimson Text', serif;
+Font slogan:			font-family: 'Cardo', sans-serif;
+Font main and footer:  	font-family: Ebrima, sans serif;
+Colors:     			Logo groen: #69b22e;
+						Logo donkergroen :#5ea129;
+						Logo Blauw: #209bd8;
+*/
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+html {
+	scroll-behavior: smooth;
+	max-width: 100vw !important;
+}
+
+p {
+	color: black;
+	font-size: 1.4rem;
+	margin-top: 5px;
+	line-height: 2.5rem;
+	font-weight: 300;
+	letter-spacing: 0.05rem;
+}
+
+.section-title {
+	font-family: 'Cardo', sans-serif;
+	text-transform: uppercase;
+}
+
+/* =========================================
+            	Preloader
+============================================ */
+
+#preloader {
+    background-color: white;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 99999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    size: 120%;
+}
+
+#status {
+    background-image: url("img/preloader.gif");
+    background-repeat: no-repeat;
+    width: 300px;
+    height: 300px;
+    margin-top: 100px;
+    margin-left: 100px;
+    size: 120%;
+}
+
+.container {
+	min-height: 100vh;
+	max-width: 100vw;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center; 
+}
+
+/* =========================================
+                Home
+============================================ */
+
+#home {
+	background-image: url(img/home.png);
+	background-size: cover;
+	background-position: 60%;
+	position: relative; 
+	z-index: 1;
+}
+
+#home::after {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	background-color: ;
+	opacity: .7;
+	z-index: -1;
+}
+
+#home .home {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 50px;
+	justify-content: flex-start;
+}
+
+#home h1 {
+	display: block;
+	width: fit-content;
+	font-size: 8rem;
+	position: relative;
+	color: transparent;
+	animation: text_reveal 0.5s ease forwards;
+	animation-delay: 1.5s;
+	font-family: 'Crimson Text', serif;
+}
+
+#home h1:nth-child(1) {
+	animation-delay: 1.6s;
+}
+
+/* Box reveal */
+#home h1 span {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 0;
+	background-color: #69b22e;
+	animation: text_reveal_box 1.5s ease;
+	animation-delay: 1s;
+}
+/* End Box reveal */
+
+/* =========================================
+                Header
+============================================ */
+
+#header {
+	position: fixed;
+	z-index: 999;
+	left: 0;
+	top: 0;
+	width: 100vw;
+	height: auto;
+}
+
+#header #logo {
+	height: 7vh;
+}
+
+#header .header {
+	min-height: 8vh;
+	background-color: transparent;
+	transition: 0.3s ease background-color;
+}
+
+#header .nav-bar {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+	height: 100%;
+	max-width: 1300px;
+	padding: 0 70px;
+}
+
+#header .nav-list ul {
+	list-style: none;
+	position: absolute;
+	background-color: #b8b8b8;
+	width: 100vw;
+	height: 100vh;
+	left: 100%;
+	top: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	z-index: 1;
+	overflow-x: hidden;
+	transition: 0.5s ease left;
+}
+
+#header .nav-list ul.active {
+	left: 0%;
+}
+
+#header .nav-list ul a {
+	font-size: 4rem;
+	letter-spacing: 0.2rem;
+	text-decoration: none;
+	color: black;
+	text-transform: uppercase;
+	padding: 20px 10px 10px 20px;
+	display: block;
+	font-family: 'Crimson Text', serif;
+}
+
+#header .nav-list ul a::after {
+	content: attr(data-after);
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(50%, 50%) scale(0);
+	color: rgba(240, 248, 255, 0.021);
+	font-size: 13rem;
+	letter-spacing: 50px;
+	z-index: -1;
+	transition: 0.3s ease letter-spacing;
+}
+
+#header .nav-list ul li:hover a::after {
+	transform: translate(-50%, -50%) scale(1);
+	letter-spacing: initial;
+}
+
+#header .nav-list ul li:hover a {
+	color: #69b22e;
+}
+
+.list {
+		font-size: em;
+}
+
+#header .hamburger {
+	height: 60px;
+	width: 60px;
+	display: inline-block;
+	border: 3px solid grey;
+	border-radius: 50%;
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 100;
+	cursor: pointer;
+	transform: scale(0.8);
+	margin-right: 20px;
+}
+
+#header .hamburger:after {
+	position: absolute;
+	content: '';
+	height: 100%;
+	width: 100%;
+	border-radius: 50%;
+	border: 3px solid grey;
+	animation: hamburger_puls 1s ease infinite;
+}
+
+#header .hamburger .bar {
+	height: 2px;
+	width: 30px;
+	position: relative;
+	background-color: grey;
+	z-index: -100;
+}
+
+#header .hamburger .bar::after,
+#header .hamburger .bar::before {
+	content: '';
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	left: 0;
+	background-color: grey;
+	transition: 0.3s ease;
+	transition-property: top, bottom;
+}
+
+#header .hamburger .bar::after {
+	top: 8px;
+}
+
+#header .hamburger .bar::before {
+	bottom: 8px;
+}
+
+#header .hamburger.active .bar::before {
+	bottom: 0;
+}
+
+#header .hamburger.active .bar::after {
+	top: 0;
+}
+
+/* Portfolio Button */
+#home .cta {
+	display: inline-block;
+	padding: 5px 30px;
+	color: black;
+	background-color: transparent;
+	border: 2px solid #69b22e;
+	font-size: 2rem;
+	text-transform: uppercase;
+	letter-spacing: 0.1rem;
+	margin-top: 20px;
+	transition: 0.2s ease;
+	font-family: 'Crimson Text', serif;
+    text-decoration: none;
+}
+
+#home .cta:hover {
+	color: white;
+	background-color: #69b22e;
+}
+/* End Portfolio Button */
+
+/* =========================================
+                About
+============================================ */
+
+#about {
+	font-family: Ebrima, sans serif;
+}
+
+#about .about {
+	flex-direction: column-reverse;
+	text-align: center;
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 100px 20px;
+}
+
+#about img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+#about .col-left {
+	width: 250px;
+	height: 360px;
+}
+
+#about .col-right {
+	width: 100%;
+}
+
+#about .col-right p {
+	margin-bottom: 20px;
+	font-size: 2rem;
+}
+
+#about .col-left .about-img {
+	height: 100%;
+	width: 100%;
+	position: relative;
+	border: 10px;
+}
+
+/* End About Section */
+
+/* =========================================
+                Statement
+============================================ */
+
+#statement {
+    background: url("img/statement.jpg") no-repeat fixed center;
+    background-size: cover;
+	margin-bottom: 100px;
+	margin-top: 100px;
+}
+
+#statement .content-box-lg {
+    background: rgba(234,233,238,0.7);
+}
+
+#statement .content-box-lg .wrapper {
+	height: 200px;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center; 
+}
+
+#about-statement h3 {
+    color: black;
+    font-size: 3rem;
+    line-height: 45px;
+    font-family: 'Cardo', sans-serif;
+    text-align: center;
+    font-weight: normal;
+}
+
+#about-statement p {
+    font-size: 1.7rem;
+    color: #5ea129;
+	font-family: 'Ebrima', sans-serif;
+    text-align: center;
+}
+
+/* =========================================
+                Statement
+============================================ */
+
+#heading {
+    background: url("img/statement.jpg") no-repeat fixed center;
+    background-size: cover;
+}
+
+#heading .content-box-lg {
+    background: rgba(234,233,238,0.7);
+}
+
+#heading .content-box-lg .wrapper {
+	height: 200px;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center; 
+}
+
+#heading #about-statement h3 {
+    color: black;
+    font-size: 5rem;
+    line-height: 45px;
+    font-family: 'Cardo', sans-serif;
+    text-align: center;
+    font-weight: normal;
+}
+
+
+/* =========================================
+                Portfolio
+============================================ */
+
+#portfolio {
+    padding-bottom: 100px;
+}
+
+#portfolio .section-title {
+    margin-left: 10px;
+}
+
+.row.no-gutters [class*=col-] {
+    padding: 0;
+}
+
+.portfolio-item {
+    overflow: hidden;
+    position: relative;
+}
+
+/* Zoom Effect */
+
+.portfolio-item img {
+    width: 100%;
+    height: auto;
+    -webkit-transition: -webkit-transform .5s ease;
+    transition: -webkit-transform .5s ease;
+    transition: transform .5s ease;
+    transition: transform .5s ease, -webkit-transform .5s ease;
+}
+
+.portfolio-item:hover img {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+
+/* Overlay Effect */
+
+.portfolio-item-overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(14, 14, 17, 0.4);
+    cursor: -webkit-zoom-in;
+    cursor: pointer;
+    opacity: 0;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+/* Show Overlay on mouse over */
+
+.portfolio-item:hover .portfolio-item-details h3 {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+}
+
+.portfolio-item:hover .portfolio-item-details p {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+}
+
+.portfolio-item:hover .portfolio-item-overlay {
+    opacity: 1;
+}
+
+/* =========================================
+               video
+============================================ */
+
+.abot {
+	flex-direction: column-reverse;
+}
+
+.abot h1 {
+	font-size: 5rem;
+	font-family: 'Cardo', serif;
+}
+
+.abot p {
+	font-size: 2rem;
+	font-family: 'Ebrima', serif;
+}
+
+.abot .col-right {
+   	text-align: center;
+}
+
+.video-title {
+	text-transform: uppercase;
+}
+
+.video-text {
+	margin: 20px;
+}
+
+.prefilm,.typo {
+	width: 500px;
+}
+
+.prefilm {
+	margin: 20px;
+}
+
+.typo {
+	margin: 20px;
+}
+
+.containr {
+	min-height: 100vh;
+	max-width: 100vw;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center; 
+}
+
+/* =========================================
+                Contact
+============================================ */
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+  	font-family: 'Ebrima', serif;
+
+}
+
+input[type=submit] {
+	display: inline-block;
+	padding: 5px 30px;
+	color: black;
+	background-color: transparent;
+	border: 2px solid #69b22e;
+	font-size: 2rem;
+	text-transform: uppercase;
+	letter-spacing: 0.1rem;
+	margin-top:5px;
+	transition: 0.2s ease;
+	font-family: 'Crimson Text', serif;
+    text-decoration: none;
+}
+
+input[type=submit]:hover {
+  background-color: #69b22e;
+  color: white;
+}
+
+.contact {
+  border-radius: 5px;
+  background-color:#F9F9F9;
+  padding: 20px;
+}
+
+/* =========================================
+                Footer
+============================================ */
+.copyright {
+	display: flex;
+	justify-content: center;
+	font-size: 1.5rem;
+	font-family: 'Ebrima', serif;
+}
+
+/* =========================================
+                Keyframes
+============================================ */
+
+@keyframes hamburger_puls {
+	0% {
+		opacity: 1;
+		transform: scale(1);
+	}
+	100% {
+		opacity: 0;
+		transform: scale(1.4);
+	}
+}
+@keyframes text_reveal_box {
+	50% {
+		width: 100%;
+		left: 0;
+	}
+	100% {
+		width: 0;
+		left: 100%;
+	}
+}
+
+@keyframes text_reveal {
+	100% {
+		color: #69b22e;
+	}
+}
+
+@keyframes p_reveal {
+	100% {
+		color: black;
+	}
+}
+
+/* =========================================
+                Media Queries
+============================================ */
+
+@media only screen and (min-width: 768px) {
+    h1.section-title {
+        font-size: 6rem;
+    }
+
+    .prefilm,.typo {
+		width: 700px;
+	}
+
+/* About */
+    #about .about {
+        flex-direction: row;
+    }
+    #about .col-left {
+        width: 600px;
+        height: 400px;
+        padding-left: 60px;
+    }
+    #about .col-right {
+        text-align: left;
+        padding: 30px;
+    }
+    #about .col-right h1 {
+        text-align: left;
+    }
+    /* End About */
+}
+/* End Media Query For Tablet */
+
+/* Media Query For Desktop */
+@media only screen and (min-width: 1200px) {
+	/* header */
+	#header .hamburger {
+		display: none;
+	}
+	#header .nav-list ul {
+		position: initial;
+		display: block;
+		height: auto;
+		width: fit-content;
+		background-color: transparent;
+	}
+	#header .nav-list ul li {
+		display: inline-block;
+	}
+	#header .nav-list ul li a {
+		font-size: 2.5rem;
+	}
+	#header .nav-list ul a:after {
+		display: none;
+	}
+	/* End header */
+
+	/* Abot */
+    .abot {
+    	flex-direction: row;
+    }
+
+	.abot .col-right {
+    	text-align: left;
+	}
+	/* End Abot */
+}
+/* End  Media Query For Desktop */
